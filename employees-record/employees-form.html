@@ -1,0 +1,701 @@
+<div class="container-employees " ng-class="{ 'fullscreen' : Ctrl.switchedSettings }" >
+    <div class="table-box table-box-employees"   >
+        <div class="button-box">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" ng-click="Ctrl.add()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                <span class="text">Добавить</span>
+            </button>
+        </div>
+
+    <!---- Filters---->
+
+        <div class="actions">
+            <div class = "form-filters">
+                <div class="switch">
+                    <input id="switch-toggle" class="switch-toggle switch-toggle-round" type="checkbox" ng-model="Ctrl.switched" ng-true-value="'truthValue'"
+                        ng-false-value="0"  ng-change="Ctrl.switched =='truthValue' ? Ctrl.onToggleFilter() : Ctrl.onToggleFilter()">
+                    <label for="switch-toggle"></label>
+                </div>
+                <label class="show-filters" for="switch-toggle">Влючить фильтры</label>
+                <div ng-if="Ctrl.switched" class="box-for-filters clearfix">
+                    <div class="filter-box">
+                        <div class="checkbox-box filter ">
+                            <input type="checkbox" id = "make-filter3" value="show-invalids" name="show-invalids" ng-model = "Ctrl.filterParams.invalid" />
+                            <i class="icon-checkmark"></i>
+                            <label for="make-filter3">Инвалиды</label>
+                        </div>
+                        <div class="checkbox-box filter">
+                            <input type="checkbox" id = "make-filter4" value="show-pensioner" name="show-pensioner"  ng-model="Ctrl.filterParams.pensioner"/>
+                            <i class="icon-checkmark"></i>
+                            <label for="make-filter4">Пенсионеры</label>
+                        </div>
+                    </div>
+                    <div class="filter-box">
+                        <label for="search-field" class="filter">Найти:</label>
+                        <div>
+                            <input type="text" ng-model="Ctrl.filterParams.nameSearch" id="search-field" placeholder="Введите фамилию" />
+                        </div>
+                    </div>
+                    <div class="filter-box">
+                        <label for="select-field" class="filter">Сортировать:</label>
+                        <div>
+                            <select name="" id="select-field" ng-model="Ctrl.filterParams.order">
+                                <option value="">без сортировки</option>
+                                <option value="surname">по фамилии</option>
+                                <option value="empName">по имени</option>
+                                <option value="strDiv">по подразделению</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class = "form-filters">
+                <div class="switch">
+                    <input id="switch-toggle2" class="switch-toggle switch-toggle-round" type="checkbox" ng-model="Ctrl.switchedSettings"  ng-true-value="'truthValue'"
+                           ng-false-value="0"  ng-change="Ctrl.switched =='truthValue' ? Ctrl.onToggleFilterSettings() : Ctrl.onToggleFilterSettings()" >
+                    <label for="switch-toggle2"></label>
+                </div>
+                <label class="show-filters" for="switch-toggle">Настроить</label>
+                <div ng-if="Ctrl.switchedSettings" class="box-for-filters clearfix">
+                    <div>Показать поля:</div>
+                    <div class="filter-box filter-box-settings" ng-click="Ctrl.checkFields()">
+                        <div class="left-column">
+                            <div>
+                                <input type="checkbox" id = "make-filter5" value="show-surname" name="show-surname" ng-model = "Ctrl.ifSurname"/>
+                                <i class="icon-checkmark"></i>
+                                <label for="make-filter5">Фамилия</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id = "make-filter6" value="show-name" name="show-name" ng-model = "Ctrl.ifEmpName" />
+                                <i class="icon-checkmark"></i>
+                                <label for="make-filter6">Имя</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id = "make-filter7" value="show-fName" name="show-fName" ng-model = "Ctrl.ifFName" />
+                                <i class="icon-checkmark"></i>
+                                <label for="make-filter7">Отчество</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id = "make-filter8" value="show-tabNum" name="show-tabNum" ng-model = "Ctrl.ifTabNum" />
+                                <i class="icon-checkmark"></i>
+                                <label for="make-filter8">Табельный номер</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id = "make-filter9" value="show-IdNum" name="show-IdNum" ng-model = "Ctrl.ifIdNum" />
+                                <i class="icon-checkmark"></i>
+                                <label for="make-filter9">ID налогоплательщика</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id = "make-filter10" value="show-numInsh" name="show-numInsh" ng-model = "Ctrl.ifNumInsh" />
+                                <i class="icon-checkmark"></i>
+                                <label for="make-filter10">№ страхового свидетельства</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id = "make-filter11" value="show-character" name="show-character" ng-model = "Ctrl.ifEmpCharacter" />
+                                <i class="icon-checkmark"></i>
+                                <label for="make-filter11">Характер работы</label>
+                            </div>
+                        </div>
+                        <div class="right-column">
+                            <div>
+                                <input type="checkbox" id = "make-filter12" value="show-type" name="show-type" ng-model = "Ctrl.ifEmpType" />
+                                <i class="icon-checkmark"></i>
+                                <label for="make-filter12">Вид работы</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id = "make-filter13" value="show-salary" name="show-salary" ng-model = "Ctrl.ifSalary" />
+                                <i class="icon-checkmark"></i>
+                                <label for="make-filter13">Оклад</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id = "make-filter14" value="show-position" name="show-position" ng-model = "Ctrl.ifPosition" />
+                                <i class="icon-checkmark"></i>
+                                <label for="make-filter14">Должность</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id = "make-filter15" value="show-department" name="show-department" ng-model = "Ctrl.ifDepartment" />
+                                <i class="icon-checkmark"></i>
+                                <label for="make-filter15">Структурное подразделение</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id = "make-filter16" value="show-status" name="show-status" ng-model = "Ctrl.ifStatus" />
+                                <i class="icon-checkmark"></i>
+                                <label for="make-filter16">Семейное положение</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id = "make-filter17" value="show-invalids" name="show-invalids" ng-model = "Ctrl.ifInv" />
+                                <i class="icon-checkmark"></i>
+                                <label for="make-filter17">Инвалиды</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id = "make-filter18" value="show-pensioners" name="show-pensioners" ng-model = "Ctrl.ifPens" />
+                                <i class="icon-checkmark"></i>
+                                <label for="make-filter18">Пенсионеры</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!----Modal---->
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="logo-box">
+                            <img src="../images/logotype.png" alt="logo" width="250" height="90"/>
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="i-close" aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Личная карточка сотрудника</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="photo-title clearfix">
+
+                            <!----fileuplouder---->
+
+                            <div ng-if="Ctrl.employeeToShow" class="empPhoto" >
+                                <img ng-if="Ctrl.employeeToShow.empPhoto" ng-src="{{Ctrl.employeeToShow.empPhoto}}"/>
+                            </div>
+                            <div ng-if="Ctrl.condition == false" class="empPhoto" >
+                                <img ng-if="Ctrl.activeEmployee.empPhoto" ng-src="{{Ctrl.activeEmployee.empPhoto}}"/>
+                                <img ng-if="!Ctrl.activeEmployee.empPhoto" src="../images/add_user1.png" alt="" class="addEmpPhoto"/>
+                                <div ng-if="Ctrl.condition == false" class="file-upload">
+                                    <label>
+                                        <input type="file" custom-on-change="Ctrl.uploadFile"/>
+                                        <span class="glyphicon glyphicon-camera"></span>
+                                        <span ng-if="Ctrl.activeEmployee.empPhoto">Обновить фотографию</span>
+                                        <span ng-if="!Ctrl.activeEmployee.empPhoto">Добавить фотографию</span>
+                                    </label>
+                                    <div class="delete-pic">
+                                        <span ng-if="Ctrl.activeEmployee.empPhoto" class="delete" ng-click="Ctrl.deletePhoto()">&times;</span>
+                                        <span ng-if="!Ctrl.activeEmployee.empPhoto" class="delete">&times;</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="Ctrl.condition == true" class="empPhoto " >
+                                <img ng-if="Ctrl.activeEmployee.empPhoto" ng-src="{{Ctrl.activeEmployee.empPhoto}}"/>
+                                <img ng-if="!Ctrl.activeEmployee.empPhoto" src="../images/add_user1.png" alt="" class="addEmpPhoto"/>
+                                <div ng-if="Ctrl.condition == true" class="file-upload">
+                                    <label>
+                                        <input type="file" custom-on-change="Ctrl.uploadFile"/>
+                                        <span class="glyphicon glyphicon-camera"></span>
+                                        <span ng-if="Ctrl.activeEmployee.empPhoto">Обновить фотографию</span>
+                                        <span ng-if="!Ctrl.activeEmployee.empPhoto">Добавить фотографию</span>
+                                    </label>
+                                    <div class="delete-pic">
+                                        <span ng-if="Ctrl.activeEmployee.empPhoto" class="delete" ng-click="Ctrl.deletePhoto()">&times;</span>
+                                        <span ng-if="!Ctrl.activeEmployee.empPhoto" class="delete">&times;</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!---- end fileuplouder---->
+
+                            <div class="person-name" ng-if="Ctrl.employeeToShow">
+                                <span ng-bind="Ctrl.employeeToShow.surname"></span>
+                                <span ng-bind="Ctrl.employeeToShow.empName"></span>
+                                <span ng-bind="Ctrl.employeeToShow.fName"></span>
+                            </div>
+                            <div class="person-name new-name" ng-if="Ctrl.activeEmployee">
+                                <span ng-bind="Ctrl.activeEmployee.surname"></span>
+                                <span ng-bind="Ctrl.activeEmployee.empName"></span>
+                                <span ng-bind="Ctrl.activeEmployee.fName"></span>
+                            </div>
+                        </div>
+                        <div ng-if="Ctrl.activeEmployee" class="validation"></div>
+                        <form name="Ctrl.addUserForm" novalidate >
+                            <table class="info">
+                                <tr>
+                                    <td>
+                                        <label class="required" for="exampleInputNumberTab">Табельный номер</label>
+                                    </td>
+                                    <td>
+                                        <label class="required" for="exampleInputNumberTax">Идентификационный номер налогоплательщика</label>
+                                    </td>
+                                    <td>
+                                        <label class="required" for="exampleInputNumberInsurance">Номер страхового свидетельства</label>
+                                    </td>
+                                    <td>
+                                        <label class="required">Характер работы</label>
+                                    </td>
+                                    <td>
+                                        <label class="required">Вид работы</label>
+                                    </td>
+                                    <td>
+                                        <label class="required">Пол</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td ng-if="Ctrl.activeEmployee">
+                                        <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.tabNum.$invalid && !Ctrl.addUserForm.tabNum.$pristine }">
+                                            <input type="text" class="form-control" id="exampleInputNumberTab"  name="tabNum"  ng-required="true" ng-model="Ctrl.activeEmployee.tabNum"/>
+                                            <span class="help-block" ng-if="Ctrl.addUserForm.tabNum.$invalid && !Ctrl.addUserForm.tabNum.$pristine">
+                                                Заполните поле
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td  ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.tabNum"  class="data-info"></td>
+                                    <td ng-if="Ctrl.activeEmployee">
+                                        <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.idNum.$invalid && !Ctrl.addUserForm.idNum.$pristine }">
+                                            <input type="text" class="form-control" id="exampleInputNumberTax" name="idNum" ng-required="true" ng-model="Ctrl.activeEmployee.idNum">
+                                            <span class="help-block" ng-if="Ctrl.addUserForm.idNum.$invalid && !Ctrl.addUserForm.idNum.$pristine">
+                                                Заполните поле
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.idNum" class="data-info"></td>
+                                    <td ng-if="Ctrl.activeEmployee">
+                                        <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.numInsh.$invalid && !Ctrl.addUserForm.numInsh.$pristine }">
+                                            <input type="text" class="form-control" id="exampleInputNumberInsurance" name="numInsh" ng-required="true" ng-model="Ctrl.activeEmployee.numInsh">
+                                            <span class="help-block"   ng-if="Ctrl.addUserForm.numInsh.$invalid && !Ctrl.addUserForm.numInsh.$pristine">
+                                                Заполните поле
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.numInsh"  class="data-info"></td>
+                                    <td ng-if="Ctrl.activeEmployee">
+                                        <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.selectCharacter.$invalid && !Ctrl.addUserForm.selectCharacter.$pristine }">
+                                            <ui-select ng-model="Ctrl.selectedCharacter.value" class="wt150" name="selectCharacter" ng-required="true">
+                                                <ui-select-match placeholder="Выбрать.........">
+                                                    <span ng-bind="$select.selected.name"></span>
+                                                </ui-select-match>
+                                                <ui-select-choices repeat="item in (Ctrl.characterArray | filter: $select.search) track by item.id">
+                                                    <span ng-bind="item.name"></span>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                            <span class="help-block" ng-if="Ctrl.addUserForm.selectCharacter.$invalid && !Ctrl.addUserForm.selectCharacter.$pristine">
+                                                Заполните поле
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.character"  class="data-info"></td>
+                                    <td ng-if="Ctrl.activeEmployee">
+                                        <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.selectType.$invalid && !Ctrl.addUserForm.selectType.$pristine }">
+                                            <ui-select ng-model="Ctrl.selectedType.value" class="wt130" name="selectType" ng-required="true">
+                                                <ui-select-match placeholder="Выбрать.........">
+                                                    <span ng-bind="$select.selected.name"></span>
+                                                </ui-select-match>
+                                                <ui-select-choices repeat="item in (Ctrl.typeArray | filter: $select.search) track by item.id">
+                                                    <span ng-bind="item.name"></span>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                             <span class="help-block"   ng-if="Ctrl.addUserForm.selectType.$invalid && !Ctrl.addUserForm.selectType.$pristine">
+                                                Заполните поле
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.type"  class="data-info"></td>
+                                    <td ng-if="Ctrl.activeEmployee">
+                                        <label ng-repeat="option in Ctrl.options track by option.name">
+                                            <span class="custom-radio">
+                                                <input type="radio" ng-model="Ctrl.checked" ng-value="option.name"/>{{option.name}}
+                                                <i></i>
+                                            </span>
+                                        </label>
+                                    </td>
+                                    <td ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.gender"  class="data-info"></td>
+                                </tr>
+                            </table>
+                        <div>
+                            <h4>Основные сведения</h4>
+                            <div class="info-contract">
+                                <span class="info-title">Трудовой договор</span>
+                                <table class="info-table">
+                                    <tr>
+                                        <td>
+                                            <label class="required" for="exampleInputNumberDoc">Номер</label>
+                                        </td>
+                                        <td ng-if="Ctrl.activeEmployee">
+                                            <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.numContract.$invalid && !Ctrl.addUserForm.numContract.$pristine }">
+                                                <input type="text" class="form-control" id="exampleInputNumberDoc"  ng-model="Ctrl.activeEmployee.numCont" name="numContract"  ng-required="true">
+                                                <span class="help-block"  ng-if="Ctrl.addUserForm.numContract.$invalid && !Ctrl.addUserForm.numContract.$pristine">
+                                                    Заполните поле
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.numCont" class="data-info"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="required">Дата</label>
+                                        </td>
+                                        <td>
+                                            <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.dataContract.$invalid && !Ctrl.addUserForm.dataContract.$pristine }">
+                                                <div ng-if="Ctrl.activeEmployee"  class="input-group" datetimepicker ng-model="Ctrl.activeEmployee.displayDateContract" options="Ctrl.pickerOptions">
+                                                    <input type="text" class="form-control" name="dataContract"  ng-required="true"/>
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                    <span class="help-block"  ng-if="Ctrl.addUserForm.dataContract.$invalid && !Ctrl.addUserForm.dataContract.$pristine">
+                                                        Заполните поле
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.displayDateContract" class="data-info"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="form-group">
+                                <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.surname.$invalid && !Ctrl.addUserForm.surname.$pristine }">
+                                    <label class="required" for="exampleInputSurname">Фамилия</label>
+                                    <input ng-if="Ctrl.activeEmployee" type="text" name="surname" class="form-control" id="exampleInputSurname"  ng-required="true" placeholder="Фамилия" ng-model="Ctrl.activeEmployee.surname" >
+                                    <span class="help-block message"  ng-if="Ctrl.addUserForm.surname.$invalid && !Ctrl.addUserForm.surname.$pristine && !Ctrl.addUserForm.surname.$error.text">
+                                        Заполните поле
+                                    </span>
+                                </div>
+                                <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.surname" class="data-info"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.name.$invalid && !Ctrl.addUserForm.name.$pristine }">
+                                    <label class="required" for="exampleInputName">Имя</label>
+                                    <input  ng-if="Ctrl.activeEmployee" type="text"  name="name"  ng-required="true"  class="form-control" id="exampleInputName" placeholder="Имя" ng-model="Ctrl.activeEmployee.empName">
+                                    <span class="help-block message" ng-if="Ctrl.addUserForm.name.$invalid && !Ctrl.addUserForm.name.$pristine">
+                                        Заполните поле
+                                    </span>
+                                </div>
+                                <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.empName" class="data-info" ></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.fName.$invalid && !Ctrl.addUserForm.fName.$pristine }">
+                                    <label class="required" for="exampleInputFName">Отчество</label>
+                                    <input ng-if="Ctrl.activeEmployee" type="text" name="fName"  ng-required="true"  class="form-control" id="exampleInputFName" placeholder="Отчество" ng-model="Ctrl.activeEmployee.fName">
+                                    <span class="help-block message"  ng-if="Ctrl.addUserForm.fName.$invalid && !Ctrl.addUserForm.fName.$pristine">
+                                        Заполните поле
+                                    </span>
+                                </div>
+                                <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.fName" class="data-info"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="required" for="exampleInputDateBirth">Дата рождения</label>
+                                <div ng-if="Ctrl.activeEmployee" id="exampleInputDateBirth" class="input-group" datetimepicker ng-model="Ctrl.activeEmployee.displayBirthday" options="Ctrl.pickerOptions">
+                                    <input type="text" class="form-control"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                                <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.displayBirthday" class="data-info"></div>
+                            </div>
+                            <div class="form">
+                                <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.birthPlace.$invalid && !Ctrl.addUserForm.birthPlace.$pristine }">
+                                    <label  class="required" for="exampleInputBirthPlace">Место рождения</label>
+                                    <input ng-if="Ctrl.activeEmployee" type="text"  name="birthPlace" class="form-control" ng-required="true" id="exampleInputBirthPlace" placeholder="Место рождения" ng-model="Ctrl.activeEmployee.birthPlace">
+                                    <span class="help-block message"  ng-if="Ctrl.addUserForm.birthPlace.$invalid && !Ctrl.addUserForm.birthPlace.$pristine">
+                                        Заполните поле
+                                    </span>
+                                </div>
+                                <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.birthPlace" class="data-info" ></div>
+                            </div>
+                            <div class="form">
+                                <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.education.$invalid && !Ctrl.addUserForm.education.$pristine }">
+                                    <label  class="required" for="exampleInputEducation">Образование</label>
+                                    <input ng-if="Ctrl.activeEmployee" type="text" name="education" class="form-control" ng-required="true" id="exampleInputEducation" placeholder="Образование" ng-model="Ctrl.activeEmployee.educ">
+                                    <span class="help-block message" ng-if="Ctrl.addUserForm.education.$invalid && !Ctrl.addUserForm.education.$pristine">
+                                        Заполните поле
+                                    </span>
+                                </div>
+                                <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.educ" class="data-info" ></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.profession.$invalid && !Ctrl.addUserForm.profession.$pristine }">
+                                    <label  class="required" for="exampleInputProfession">Профессия</label>
+                                    <input ng-if="Ctrl.activeEmployee"  type="text" name="profession" class="form-control"  ng-required="true" id="exampleInputProfession" placeholder="Профессия" ng-model="Ctrl.activeEmployee.prof">
+                                     <span class="help-block message"  ng-if="Ctrl.addUserForm.profession.$invalid && !Ctrl.addUserForm.profession.$pristine">
+                                        Заполните поле
+                                    </span>
+                                </div>
+                                <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.prof" class="data-info" ></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.position.$invalid && !Ctrl.addUserForm.position.$pristine }">
+                                    <label  class="required" for="exampleInputPosition">Должность</label>
+                                    <input ng-if="Ctrl.activeEmployee" type="text" name="position" class="form-control" ng-required="true" id="exampleInputPosition" placeholder="Должность" ng-model="Ctrl.activeEmployee.pos">
+                                    <span class="help-block message" ng-if="Ctrl.addUserForm.position.$invalid && !Ctrl.addUserForm.position.$pristine">
+                                        Заполните поле
+                                    </span>
+                                </div>
+                                <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.pos" class="data-info" ></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.salary.$invalid && !Ctrl.addUserForm.salary.$pristine }">
+                                    <label class="required" for="exampleInputSalary">Должностной оклад (руб.)</label>
+                                    <input ng-if="Ctrl.activeEmployee" type="text" name="salary" class="form-control" ng-required="true"  id="exampleInputSalary" placeholder="Должностной оклад" ng-model="Ctrl.activeEmployee.salary" >
+                                    <span class="help-block message" ng-if="Ctrl.addUserForm.salary.$invalid && !Ctrl.addUserForm.salary.$pristine">
+                                        Заполните поле
+                                    </span>
+                                </div>
+                                <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.salary" class="data-info"></div>
+                            </div>
+                            <div class="form">
+                                <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.department.$invalid && !Ctrl.addUserForm.department.$pristine }">
+                                    <label class="required">Структурное подразделение</label>
+                                    <ui-select ng-if="Ctrl.activeEmployee" name="department" ng-model="Ctrl.selectedDivision.value" class="wt400" ng-required="true"  >
+                                        <ui-select-match placeholder="Выбрать......">
+                                            <span ng-bind="$select.selected.name"></span>
+                                        </ui-select-match>
+                                        <ui-select-choices repeat="item in (Ctrl.divisionsArray | filter: $select.search) track by item.id">
+                                            <span ng-bind="item.name"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <span class="help-block message"  ng-if="Ctrl.addUserForm.department.$invalid && !Ctrl.addUserForm.department.$pristine">
+                                        Заполните поле
+                                    </span>
+                                </div>
+                                <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.strDiv" class="data-info"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.experience.$invalid && !Ctrl.addUserForm.experience.$pristine }">
+                                    <label class="required" for="exampleInputExperience">Стаж работы в данной организации (лет)</label>
+                                    <input ng-if="Ctrl.activeEmployee"  type="text" name="experience" class="form-control" ng-required="true" id="exampleInputExperience" placeholder="Стаж работы" ng-model="Ctrl.activeEmployee.experience">
+                                    <span class="help-block message"   ng-if="Ctrl.addUserForm.experience.$invalid && !Ctrl.addUserForm.experience.$pristine">
+                                        Заполните поле
+                                    </span>
+                                </div>
+                                <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.experience" class="data-info"></div>
+                            </div>
+                            <div class="form">
+                                <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.address.$invalid && !Ctrl.addUserForm.address.$pristine }">
+                                    <label class="required" for="exampleInputAddress">Домашний адрес</label>
+                                    <input ng-if="Ctrl.activeEmployee" type="text" name="address" class="form-control" ng-required="true" id="exampleInputAddress" placeholder="Домашний адрес" ng-model="Ctrl.activeEmployee.address">
+                                    <span class="help-block message"  ng-if="Ctrl.addUserForm.address.$invalid && !Ctrl.addUserForm.address.$pristine">
+                                        Заполните поле
+                                    </span>
+                                </div>
+                                <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.address" class="data-info"></div>
+                            </div>
+                            <div class="add-info-box clearfix">
+                                <div class="left-column">
+                                    <div class="form">
+                                        <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.phone.$invalid && !Ctrl.addUserForm.phone.$pristine }">
+                                            <label class="required" for="exampleInputTelephone">Телефон</label>
+                                            <input  ng-if="Ctrl.activeEmployee"  type="text" name="phone" class="form-control" ng-required="true" id="exampleInputTelephone" placeholder="Телефон" ng-model="Ctrl.activeEmployee.tel">
+                                            <span class="help-block message"  ng-if="Ctrl.addUserForm.phone.$invalid && !Ctrl.addUserForm.phone.$pristine">
+                                               Заполните поле
+                                            </span>
+                                        </div>
+                                        <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.tel" class="data-info"></div>
+                                    </div>
+                                </div>
+                                <div class="right-column">
+                                    <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.mail.$invalid && !Ctrl.addUserForm.mail.$pristine }">
+                                        <label  class="required" for="exampleInputEmail">E-mail</label>
+                                        <input ng-if="Ctrl.activeEmployee" type="email"  ng-required="true" class="form-control" name="mail" id="exampleInputEmail" placeholder="E-mail" ng-model="Ctrl.activeEmployee.email">
+                                         <span class="help-block message"  ng-if=" Ctrl.addUserForm.mail.$invalid && !Ctrl.addUserForm.mail.$pristine">
+                                            Некорректный e-mail
+                                        </span>
+                                    </div>
+                                    <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.email" class="data-info"></div>
+                                </div>
+                            </div>
+                            <div class="add-info-box clearfix">
+                                <div class="left-column">
+                                    <div class="name-group" ng-class="{ 'has-error' : Ctrl.addUserForm.state.$invalid && !Ctrl.addUserForm.state.$pristine }">
+                                        <label class="required">Семейное положение</label>
+                                        <ui-select ng-if="Ctrl.activeEmployee"  ng-model="Ctrl.selectedCase.value" class="wt150" ng-required="true" name="state">
+                                            <ui-select-match placeholder="Выбрать.........">
+                                                <span ng-bind="$select.selected.name"></span>
+                                            </ui-select-match>
+                                            <ui-select-choices repeat="item in (Ctrl.stateArray | filter: $select.search) track by item.id">
+                                                <span ng-bind="item.name"></span>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                        <span class="help-block message"  ng-if=" Ctrl.addUserForm.state.$invalid && !Ctrl.addUserForm.state.$pristine">
+                                            Выберите один из вариантов
+                                        </span>
+                                    </div>
+                                    <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.state" class="data-info"></div>
+                                </div>
+                            </div>
+                            <div  class="add-info-box clearfix">
+                                <h4>Дополнительные сведения</h4>
+                                <div class="left-column">
+                                    <div class = "form">
+                                        <div class="checkbox-box ">
+                                            <label for="make-filter1">Инвалид</label>
+                                            <input ng-if="Ctrl.activeEmployee" type="checkbox" id = "make-filter1" value="invalid" name="invalid" ng-model = "Ctrl.checkedCheckbox" />
+                                            <i ng-if="Ctrl.activeEmployee"  class="icon-checkmark"></i>
+                                            <span ng-if="Ctrl.employeeToShow" class="data-info">
+                                                <span ng-if="Ctrl.employeeToShow.inv">да</span>
+                                                <span ng-if="!Ctrl.employeeToShow.inv">нет</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div  ng-if="Ctrl.checkedCheckbox" class="form">
+                                        <label for="exampleInvInput">Документ</label>
+                                        <input  ng-if="Ctrl.activeEmployee"  type="text" class="form-control" id="exampleInvInput" placeholder="Название и номер документа" ng-model="Ctrl.activeEmployee.invDoc">
+                                    </div>
+                                    <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.invDoc" ></div>
+                                </div>
+                                <div class="right-column">
+                                   <div class = "form">
+                                       <div class="checkbox-box ">
+                                           <label for="make-filter2">Пенсионер</label>
+                                           <input ng-if="Ctrl.activeEmployee" type="checkbox" id = "make-filter2" value="pensioner" name="pensioner" ng-model = "Ctrl.checkedOk" />
+                                           <i ng-if="Ctrl.activeEmployee" class="icon-checkmark"></i>
+                                           <span  ng-if="Ctrl.employeeToShow" class="data-info">
+                                               <span ng-if="Ctrl.employeeToShow.pens">да</span>
+                                               <span ng-if="!Ctrl.employeeToShow.pens">нет</span>
+                                           </span>
+                                       </div>
+                                   </div>
+                                   <div ng-if="Ctrl.checkedOk" class="form">
+                                       <label for="examplePensInput">Документ</label>
+                                       <input  ng-if="Ctrl.activeEmployee"  type="text" class="form-control" id="examplePensInput" placeholder="Название и номер документа" ng-model="Ctrl.activeEmployee.pensDoc">
+                                   </div>
+                                   <div ng-if="Ctrl.employeeToShow" ng-bind="Ctrl.employeeToShow.pensDoc" ></div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="modal-footer">
+                                <div ng-if="Ctrl.activeEmployee" class="modal-buttons">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        <span>Отменить</span>
+                                    </button>
+                                    <button ng-if="Ctrl.activeEmployee" type="submit" ng-disabled="!Ctrl.addUserForm.$valid" ng-click="Ctrl.createEmployee()" class="btn btn-primary" data-dismiss="modal">
+                                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                        <span>Сохранить</span>
+                                    </button>
+                                </div>
+                                <div ng-if="Ctrl.employeeToShow" class="modal-buttons">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        <span>Закрыть</span>
+                                    </button>
+                                    <button type="button" class="btn btn-default" data-target="#myModal"  ng-click="Ctrl.editEmployee(Ctrl.employeeToShow)">
+                                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                        <span class="text">Редактировать</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!---- End Modal---->
+
+        <table class="table table-for-employees" >
+            <caption>Сведения о сотрудниках</caption>
+            <tr>
+                <th>№</th>
+                <th>Фото</th>
+                <th ng-if="Ctrl.ifSurname">Фамилия</th>
+                <th ng-if="Ctrl.ifEmpName">Имя</th>
+                <th ng-if="Ctrl.ifFName">Отчество</th>
+                <th ng-if="Ctrl.ifTabNum">Табельный №</th>
+                <th ng-if="Ctrl.ifIdNum">ID номер</th>
+                <th ng-if="Ctrl.ifNumInsh">№ страхового свидетельства</th>
+                <th ng-if="Ctrl.ifEmpCharacter">Характер работы</th>
+                <th ng-if="Ctrl.ifEmpType">Вид работы</th>
+                <th ng-if="Ctrl.ifSalary">Оклад(руб.)</th>
+                <th ng-if="Ctrl.ifPosition">Должность</th>
+                <th ng-if="Ctrl.ifDepartment">Структрное подразделение</th>
+                <th ng-if="Ctrl.ifStatus">Cемейное положение</th>
+                <th ng-if="Ctrl.ifInv">Инвалид</th>
+                <th ng-if="Ctrl.ifPens">Пенсионер</th>
+                <th style="display: none;">Трудовой договор (номер)</th>
+                <th style="display: none;" >Трудовой договор(номер)</th>
+                <th style="display: none;" >Дата рождения</th>
+                <th style="display: none;" >Место рождения</th>
+                <th style="display: none;" >Образование</th>
+                <th style="display: none;" >Профессия</th>
+                <th style="display: none;" >Стаж(общий)(лет)</th>
+                <th style="display: none;" >Домашний адрес</th>
+                <th style="display: none;" >Телефон</th>
+                <th style="display: none;" >E-mail</th>
+                <th style="display: none;" >Пол</th>
+                <th style="display: none;" >Документы</th>
+                <th style="display: none;" >Документы</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="person in Ctrl.filteredEmployees track by $index " >
+                <td ng-bind="$index + 1"></td>
+                <td>
+                    <div class="pic-box">
+                        <img ng-if="person.empPhoto" ng-src="{{person.empPhoto}}"/>
+                        <span ng-if="!person.empPhoto" class="user-icon glyphicon glyphicon-user"></span>
+                    </div>
+                </td>
+                <td ng-if="Ctrl.ifSurname" ng-bind="person.surname | capitalize"></td>
+                <td ng-if="Ctrl.ifEmpName" ng-bind="person.empName | capitalize"></td>
+                <td ng-if="Ctrl.ifFName" ng-bind="person.fName | capitalize"></td>
+                <td ng-if="Ctrl.ifTabNum" ng-bind="person.tabNum"></td>
+                <td ng-if="Ctrl.ifIdNum" ng-bind="person.idNum"></td>
+                <td ng-if="Ctrl.ifNumInsh" ng-bind="person.numInsh"></td>
+                <td ng-if="Ctrl.ifEmpCharacter" ng-bind="person.character"></td>
+                <td ng-if="Ctrl.ifEmpType" ng-bind="person.type"></td>
+                <td ng-if="Ctrl.ifSalary" ng-bind="person.salary"></td>
+                <td ng-if="Ctrl.ifPosition" ng-bind="person.pos | capitalize"></td>
+                <td ng-if="Ctrl.ifDepartment" ng-bind="person.strDiv"></td>
+                <td ng-if="Ctrl.ifStatus" ng-bind="person.state"></td>
+                <td ng-if="Ctrl.ifInv">
+                    <span class="{'one': person.inv}"></span>
+                    <span class="{'two': !person.inv}"></span>
+                    <span ng-if="person.inv">да</span>
+                    <span ng-if="!person.inv">нет</span>
+                </td>
+                <td ng-if="Ctrl.ifPens" >
+                    <span class="{'one': person.pens}"></span>
+                    <span class="{'two': !person.pens}"></span>
+                    <span ng-if="person.pens">да</span>
+                    <span ng-if="!person.pens">нет</span>
+                </td>
+                <td style="display: none;"  ng-bind="person.contNum"></td>
+                <td style="display: none;"  ng-bind="person.contDate"></td>
+                <td style="display: none;" ng-bind="person.birthday"></td>
+                <td style="display: none;"  ng-bind="person.birthPlace"></td>
+                <td style="display: none;"  ng-bind="person.educ | capitalize"></td>
+                <td style="display: none;" ng-bind="person.prof | capitalize"></td>
+                <td style="display: none;"  ng-bind="person.experience"></td>
+                <td style="display: none;"  ng-bind="person.address"></td>
+                <td style="display: none;"  ng-bind="person.tel"></td>
+                <td style="display: none;"  ng-bind="person.email"></td>
+                <td style="display: none;"  ng-bind="person.gender"></td>
+                <td style="display: none;"  ng-bind="person.pensDoc | capitalize"></td>
+                <td style="display: none;"  ng-bind="person.invDoc | capitalize"></td>
+                <td >
+                    <div class="dropdown">
+                        <span class="settings-txt" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="icon-cog"></span>
+                            <span class="caret"></span>
+                        </span>
+                        <ul class="dropdown-menu list-buttons" aria-labelledby="dLabel">
+                            <li>
+                                <button class="btn-special" data-toggle="modal" data-target="#myModal" ng-click="Ctrl.showCart(person)">
+                                    <span class=" glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                                    <span class="text">Открыть личную карточку</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="btn-special" data-toggle="modal" data-target="#myModal" ng-click="Ctrl.editEmployee(person)">
+                                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                    <span class="text">Редактировать</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="btn-special" ng-click="Ctrl.remove(person)">
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                    <span class="text">Удалить</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="total">
+            <span>Всего сотрудников:</span>
+            <span ng-bind="Ctrl.filteredEmployees.length"></span>
+        </div>
+    </div>
+</div>
+
+<!--!!!!!!!!!!!!!1http://plnkr.co/edit/4IzbAr24Gelwu8u8rIfq?p=preview-->

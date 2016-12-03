@@ -1,0 +1,185 @@
+
+    <div class="table-box table-box-stats">
+        <table class="table table-for-stats" >
+            <caption>Статистика</caption>
+            <tr>
+                <td class="quantity-box">
+                    <canvas class="chart chart-pie" chart-data="Stats.dataDepartments" chart-labels="Stats.labelsDepartments"
+                             chart-options="Stats.optionsDepartments">
+                    </canvas>
+                </td>
+                <td class="quantity-box" >
+                     <span class="title" >
+                        <span>Всего сотрудников (чел.): </span>
+                        <span ng-bind="Stats.quantity"></span>
+                    </span>
+                    <table class="stats-department">
+                        <tr>
+                            <th>Отдел</th>
+                            <th>чел.</th>
+                            <th>%</th>
+                        </tr>
+                        <tr ng-repeat="item in Stats.divisionsArray track by $index" ng-init="Stats.quantityByDivision(item)">
+                            <td class="name-Div" ng-bind="item.name"></td>
+                            <td ng-bind="item.size"></td>
+                            <td ng-bind="item.percent"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="quantity-box">
+                    <canvas id="pie2" class="chart chart-pie"  chart-data="Stats.dataGender"  chart-options="Stats.optionsGender"
+                            chart-labels="Stats.labelsGender">
+                    </canvas>
+                </td>
+                <td class="quantity-box">
+                     <span class="title" >
+                        <span>Всего сотрудников (чел.): </span>
+                        <span ng-bind="Stats.quantity"></span>
+                    </span>
+                    <table class="stats-department">
+                        <tr>
+                            <th></th>
+                            <th>чел.</th>
+                            <th>%</th>
+                        </tr>
+                        <tr ng-repeat="item in Stats.options track by $index" ng-init="Stats.quantityByGender(item)">
+                            <td class="name-Div" ng-bind="item.value"></td>
+                            <td ng-bind="item.size"></td>
+                            <td ng-bind="item.percent"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="quantity-box">
+                    <canvas class="chart chart-pie" chart-data="Stats.dataPensionersInvalids" chart-labels="Stats.labelsPensionersInvalids"
+                            chart-options="Stats.optionsPensionersInvalids">
+                    </canvas>
+
+                </td>
+                <td class="quantity-box">
+                     <span class="title" >
+                        <span>Всего сотрудников (чел.): </span>
+                        <span ng-bind="Stats.quantity"></span>
+                    </span>
+                    <table class="stats-department">
+                        <tr>
+                            <th></th>
+                            <th>чел.</th>
+                            <th>%</th>
+                        </tr>
+                        <tr>
+                             <td class="name-Div" ng-bind="Stats.pensObj.name"></td>
+                             <td class="name-Div" ng-bind="Stats.getQuantityPens()"></td>
+                             <td class="name-Div" ng-bind="Stats.getQuantityPensPercent()"></td>
+                        </tr>
+                        <tr>
+                            <td class="name-Div" ng-bind="Stats.invObj.name"></td>
+                            <td class="name-Div" ng-bind="Stats.getQuantityInv()"></td>
+                            <td class="name-Div" ng-bind="Stats.getQuantityInvPercent()"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="quantity-box">
+                    <canvas class="chart chart-pie" chart-data="Stats.dataCharacter" chart-labels="Stats.labelsCharacter"
+                            chart-options="Stats.optionsCharacter">
+                    </canvas>
+                </td>
+                <td class="quantity-box">
+                     <span class="title" >
+                        <span>Всего сотрудников (чел.): </span>
+                        <span ng-bind="Stats.quantity"></span>
+                    </span>
+                    <table class="stats-department">
+                        <tr>
+                            <th></th>
+                            <th>чел.</th>
+                            <th>%</th>
+                        </tr>
+                        <tr ng-repeat="item in Stats.characterArray track by $index" ng-init="Stats.quantityByCharacter(item)">
+                            <td class="name-Div" ng-bind="item.value"></td>
+                            <td ng-bind="item.size"></td>
+                            <td ng-bind="item.percent"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="quantity-box">
+                    <canvas class="chart chart-pie" chart-data="Stats.dataType" chart-labels="Stats.labelsType"
+                            chart-options="Stats.optionsType">
+                    </canvas>
+                </td>
+                <td class="quantity-box">
+                     <span class="title" >
+                        <span>Всего сотрудников (чел.): </span>
+                        <span ng-bind="Stats.quantity"></span>
+                    </span>
+                    <table class="stats-department">
+                        <tr>
+                            <th></th>
+                            <th>чел.</th>
+                            <th>%</th>
+                        </tr>
+                        <tr ng-repeat="item in Stats.typeArray track by $index" ng-init="Stats.quantityByType(item)">
+                            <td class="name-Div" ng-bind="item.value"></td>
+                            <td ng-bind="item.size"></td>
+                            <td ng-bind="item.percent"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="quantity-box">
+                    <canvas id="bar" class="chart chart-bar"
+                            chart-data="Stats.dataWage" chart-labels="Stats.labelsWage" chart-series="Stats.seriesWage" chart-options="Stats.optionsWage">
+                    </canvas>
+                </td>
+                <td class="quantity-box">
+                    <span class="title" >
+                        <span>Заработная плата (руб.): </span>
+                    </span>
+                    <table class="stats-department wage">
+                        <tr>
+                            <th></th>
+                            <th>руб.</th>
+                        </tr>
+                        <tr ng-repeat="item in Stats.salaryArray track by $index" ng-init="Stats.countSalary(item)">
+                            <td class="name-Div" ng-bind="item.name"></td>
+                            <td ng-bind="item.size"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="quantity-box">
+                    <canvas id="bar2" class="chart chart-bar"
+                            chart-data="Stats.dataAvgWage" chart-labels="Stats.labelsAvgWage" chart-series="Stats.seriesAvgWage" chart-options="Stats.optionsAvgWage">
+                    </canvas>
+                </td>
+                <td class="quantity-box">
+                         <span class="title" >
+                            <span>Расходы на зарплату (руб.): </span>
+                        </span>
+                    <table class="stats-department wage">
+                        <tr>
+                            <th></th>
+                            <th>руб.</th>
+                        </tr>
+                        <tr>
+                            <td>за месяц</td>
+                            <td ng-bind="Stats.countWageCosts()"></td>
+                        </tr>
+                        <tr>
+                            <td>за год</td>
+                            <td ng-bind="Stats.countWageCostsYear()"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>

@@ -1,0 +1,106 @@
+<div class="container-organization">
+    <div class="table-box organization-box">
+        <div class="button-box">
+            <button ng-if="!Ctrl.orgToEdit" class="btn" ng-click="Ctrl.edit()">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                <span class="text">Редактировать</span>
+            </button>
+            <button ng-if="Ctrl.orgToEdit" class="btn" ng-click="Ctrl.cancel()">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                <span class="text">Отменить редактирование</span>
+            </button>
+            <button ng-if="Ctrl.orgToEdit" class="btn" ng-click="Ctrl.save()">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                <span class="text">Сохранить изменения</span>
+            </button>
+        </div>
+        <table class="table table-for-organization">
+            <caption>Сведения об организации</caption>
+            <tr>
+                <td>Организационно-правовая форма </td>
+                <td ng-if="!Ctrl.orgToEdit" ng-bind="Ctrl.organization.orgForm"></td>
+                <td ng-if="Ctrl.orgToEdit">
+                    <div class="row-box">
+                        <input type="text" class="txt-area" ng-model="Ctrl.orgToEdit.orgForm" autofocus/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Полное наименование</td>
+                <td ng-if="!Ctrl.orgToEdit" ng-bind="Ctrl.organization.fullName"></td>
+                <td ng-if="Ctrl.orgToEdit">
+                    <div class="row-box">
+                        <input type="text" class="txt-area" ng-model="Ctrl.orgToEdit.fullName"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Сокращённое наименование</td>
+                <td ng-if="!Ctrl.orgToEdit" ng-bind="Ctrl.organization.shortName"></td>
+                <td ng-if="Ctrl.orgToEdit">
+                    <div class="row-box">
+                        <input type="text" class="txt-area" ng-model="Ctrl.orgToEdit.shortName"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>ИНН</td>
+                <td ng-if="!Ctrl.orgToEdit" ng-bind="Ctrl.organization.INN"></td>
+                <td ng-if="Ctrl.orgToEdit">
+                    <div class="row-box">
+                        <input type="text" class="txt-area" ng-model="Ctrl.orgToEdit.INN"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Юридический адрес</td>
+                <td ng-if="!Ctrl.orgToEdit" ng-bind="Ctrl.organization.iyrAddress"></td>
+                <td ng-if="Ctrl.orgToEdit">
+                    <div class="row-box">
+                        <input type="text" class="txt-area" ng-model="Ctrl.orgToEdit.iyrAddress"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Контактный телефон </td>
+                <td ng-if="!Ctrl.orgToEdit" ng-bind="Ctrl.organization.tel"></td>
+                <td ng-if="Ctrl.orgToEdit">
+                    <div class="row-box">
+                        <input type="text" class="txt-area" ng-model="Ctrl.orgToEdit.tel"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Факс</td>
+                <td  ng-if="!Ctrl.orgToEdit" ng-bind="Ctrl.organization.fax"></td>
+                <td ng-if="Ctrl.orgToEdit">
+                    <div class="row-box">
+                        <input type="text" class="txt-area" ng-model="Ctrl.orgToEdit.fax"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Адрес электронной почты</td>
+                <td  ng-if="!Ctrl.orgToEdit" ng-bind="Ctrl.organization.emailAddress"></td>
+                <td ng-if="Ctrl.orgToEdit">
+                    <div class="row-box">
+                        <input type="text" class="txt-area" ng-model="Ctrl.orgToEdit.emailAddress"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>ФИО руководителя</td>
+                <td ng-bind="Ctrl.director"></td>
+            </tr>
+            <tr>
+                <td>ФИО начальника отдела кадров</td>
+                <td ng-bind="Ctrl.hrManager"> </td>
+            </tr>
+            <tr>
+                <td>Количество сотрудников</td>
+                <td ng-bind="Ctrl.quantity"></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
