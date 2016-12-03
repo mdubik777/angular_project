@@ -5,8 +5,8 @@ angular.module('personnelRecord')
         $stateProvider
 
             .state('organization-form', {
-                url: "/organization-record/organization-form",
-                templateUrl: "/organization-record/organization-form.html",
+                url: "organization-record/organization-form",
+                templateUrl: "organization-record/organization-form.html",
                 controller: "OrganizationCtrl",
                 controllerAs: "Ctrl",
                 resolve: {
@@ -21,8 +21,8 @@ angular.module('personnelRecord')
             })
 
             .state('employees-form', {
-                url: "/employees-record/employees-form",
-                templateUrl: "/employees-record/employees-form.html",
+                url: "employees-record/employees-form",
+                templateUrl: "employees-record/employees-form.html",
                 controller: "EmployeesCtrl",
                 controllerAs: "Ctrl",
                 resolve: {
@@ -35,8 +35,8 @@ angular.module('personnelRecord')
             })
 
             .state('stats-form', {
-                url: "/stats-record/stats-form",
-                templateUrl: "/stats-record/stats-form.html",
+                url: "stats-record/stats-form",
+                templateUrl: "stats-record/stats-form.html",
                 controller: "Stats",
                 controllerAs: "Stats",
                 resolve: {
