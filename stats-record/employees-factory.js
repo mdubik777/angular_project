@@ -13,7 +13,7 @@ angular.module('personnelRecord').factory('employeesData',
 
                     return $http({
                         method: 'GET',
-                        url: '/json/employees.json'
+                        url: 'json/employees.json'
                     })
                         .success(function(data){
                             employees = data;
