@@ -159,18 +159,14 @@ caption {
 .icon-button {
     display: inline-block;
     font-size: 15px;
-
-
 }
 .button-text {
     display: inline-block;
-   position: relative;
-
+    position: relative;
     top: 4px;
     color: #ffffff;
     font-weight: bold;
 }
-
 .content-wrapper .sidebar-left {
     width: 240px;
     float: left;
@@ -307,11 +303,7 @@ caption {
     padding: 15px;
     background: #20778b;
     border-radius: 10px;
-
-
 }
-
-
 .navigation .nav-list li {
     position: relative;
 }
@@ -327,7 +319,6 @@ caption {
     text-decoration: none;
     border: 2px solid #000000;
     border-right: none;
-
 }
 .navigation .nav-list li a:hover{
     color: #000000;
@@ -356,10 +347,6 @@ caption {
     border: 26px solid transparent;
     border-left: 38px solid #c4dfc4;
 }
-
-
-
-
 ul.menu-navigation {
     padding-top: 30px;
     width: 576px;
@@ -389,7 +376,6 @@ ul.menu-navigation {
 .menu-navigation li:last-child {
     margin-right: 0;
 }
-
 .menu-navigation li:hover{
     border: 1px solid black;
     -webkit-transform: scale(1.3);
@@ -406,7 +392,6 @@ ul.menu-navigation {
     -ms-transform: scale(1.3);
     transform: scale(1.3);
 }
-
 .menu-navigation li:last-child{
     margin-right: 0px;
 }
@@ -422,9 +407,6 @@ ul.menu-navigation {
 
 .menu-navigation  .menu-icon{
     width: 100%;
-    /*height: 60px;*/
-    /*left: 0px;*/
-    /*top: 9px;*/
     text-align: center;
     display: block;
     -webkit-transition: all 200ms linear;
@@ -443,15 +425,12 @@ ul.menu-navigation {
     line-height: 19px;
     padding-top: 5px;
 }
-
 .menu-navigation  li.active .text-menu {
     color: #000;
 }
-
 .menu-navigation li:hover .text-menu{
     color: #000;
 }
-
 
 /*-----------------------------------------------------
                 Footer
@@ -469,61 +448,31 @@ ul.menu-navigation {
     font-weight: bold;
 }
 
-
-
 /*---------------------------------------------
                   organization-form
-        --------------------------------------*/
+----------------------------------------------*/
 
-
-
-
-/*.table-box {*/
-    /*margin: 0 auto;*/
-    /*padding: 40px 65px 30px;*/
-
-/*}*/
-
-/*.container-organization {*/
-
-    /*margin: 4px auto;*/
-/*}*/
 
 .organization-box {
-    /*overflow: hidden;*/
     box-shadow: 10px -10px 49px black;
-    /*margin: 40px auto;*/
-
-
 }
 .organization-box .table {
     margin-bottom: 50px;
 }
-
 .organization-box .table td {
-    /*width: 30%;*/
     border-top: 2px solid #726b6b;
     padding: 12px 8px;
     line-height: 25px;
 }
-
-.table tr:last-child td {
-    border-bottom: 2px solid #726b6b;
-}
-
-
 .organization-box {
     background-color: #9cc2ba;
 }
 .table-box {
-    /*margin: 40px auto;*/
     border: 7px double #000000;
     padding: 30px 40px;
     box-shadow: inset -1px 6px 39px #000000;
     background-color: #b2b2b2;
-
 }
-
 .organization-box  .button-box {
     float: right;
 }
@@ -547,13 +496,10 @@ ul.menu-navigation {
     text-transform: uppercase;
     font-size: 12px;
     font-weight: bold;
-
 }
-
 .table tr:nth-child(odd) {
     background-color: rgba(255, 255, 255, 0.42);
 }
-
 .glyphicon-ok:before {
     content: "\e013";
     font-size: 17px;
@@ -567,12 +513,10 @@ ul.menu-navigation {
     font-size: 17px;
 }
 
-                    /*---------------------------------------------
-                                employees-form
-                    ------------------------------------------------*/
-/*---------------------------------------
-            filters
----------------------------------------*/
+/*---------------------------------------------
+            employees-form
+------------------------------------------------*/
+/*------------filters-------------------------*/
 
 .box-for-filters {
     height: 220px; ;
@@ -605,10 +549,7 @@ ul.menu-navigation {
     width: 250px;
     border: 1px inset #000000;
     outline: none;
-
-
 }
-
 .form-filters #select-field {
     margin-left: 8px;
     padding: 8px;
@@ -622,9 +563,7 @@ ul.menu-navigation {
 }
 
 
-/*------------------------------------------------
-           switcher
---------------------------------------------------*/
+/*-----------switcher---------------*/
 .show-filters {
     font-weight: bold;
     font-style: italic;
@@ -682,11 +621,6 @@ ul.menu-navigation {
 .form-filters input.switch-toggle-round:checked + label:after {
     margin-left: 25px;
 }
-
-
-
-
-
 .table-box-employees {
     width: 100%;
 }
@@ -703,15 +637,12 @@ ul.menu-navigation {
     background-color: #157f03;
     color: white;
     border: none;
-
 }
 .button-box .btn:active,
 .button-box .btn:hover {
     background-color: #157f03;
     outline: none;
 }
-
-
 .table-box-employees .photo {
     width: 225px;
     height: 280px;
@@ -719,11 +650,8 @@ ul.menu-navigation {
     border: 2px solid gray;
     background-color: lightgray;
     text-align: center;
-
 }
-/*-------------------------------------------
-                Modal
----------------------------------------------*/
+/*--------------Modal--------------------*/
 
 .table-box-employees .modal-header {
     padding: 10px 30px 0;
@@ -738,18 +666,15 @@ ul.menu-navigation {
     width: 250px;
     height: 90px;
 }
-
 .modal-header  .logo-box a {
     float: left;
 }
-
 .modal-header .close {
     margin-top: 18px;
     height: 25px;
     width: 25px;
     overflow: hidden;
 }
-
 .modal-header .close .i-close {
     font-size: 35px;
     line-height: 24px;
@@ -757,13 +682,10 @@ ul.menu-navigation {
     display: inline-block;
     font-weight: bold;
 }
-
 .table-box-employees .modal-body {
     position: relative;
     padding: 18px 60px;
 }
-
-
 .table-box-employees .modal-footer {
     border-top: 1px solid gray;
 }
@@ -771,13 +693,11 @@ ul.menu-navigation {
     font-size: 28px;
     font-weight: bold;
 }
-
 .table-box-employees .modal-content {
     border: 10px double black;
     background: linear-gradient(135deg, white, lightgray);
     box-shadow: inset -1px 6px 39px #000000;
 }
-
 .file-upload {
     position: absolute;
     height: 40px;
@@ -814,8 +734,6 @@ ul.menu-navigation {
     left: 6px;
     color: white;
 }
-
-
 .table-box-employees .modal-content .empPhoto {
     float: left;
     border: 2px solid #000000;
@@ -823,13 +741,11 @@ ul.menu-navigation {
     width: 163px;
     height: 204px;
     overflow: hidden;
-    /*cursor: pointer;*/
     background-size: cover;
     position: relative;
     text-align: center;
     background-color: #fafafa;
 }
-
 .modal-content .empPhoto .delete-pic {
     position:absolute;
     top: -160px;
@@ -837,21 +753,16 @@ ul.menu-navigation {
     background-color: rgba(0, 0, 0, 0.5);
     height: 15px;
     text-align: center;
-
-
 }
 .empPhoto .delete-pic .delete {
     font-size: 24px;
     color: white;
     line-height: 16px;
 }
-
-
 .table-box-employees .modal-content .empPhoto img {
     height: 100%;
     width: auto;
 }
-
 .table-box-employees .modal-content .empPhoto:hover .file-upload {
     opacity: 1;
     cursor: pointer;
@@ -859,13 +770,6 @@ ul.menu-navigation {
 .table-box-employees .modal-content .empPhoto  img.addEmpPhoto {
     width: 100%;
 }
-/*.empPhoto div.file-upload.add-image {*/
-    /*bottom: -1px;*/
-    /*opacity: 1;*/
-/*}*/
-
-
-
 .table-box-employees table.info {
     margin: 50px auto;
     text-align: left;
@@ -875,7 +779,6 @@ ul.menu-navigation {
     color: #656665;
     border: 16px solid #dddedf;
     border-radius: 20px;
-
 }
 .table-box-employees div.validation {
     margin-top: 20px;
@@ -921,9 +824,6 @@ ul.menu-navigation {
     position: absolute;
     bottom: -20px;
 }
-
-
-
 .table-box-employees h4 {
     font-size: 24px;
     font-weight: bold;
@@ -940,10 +840,6 @@ ul.menu-navigation {
 .table-box-employees .form {
     padding-bottom: 25px;
 }
-
-
-
-
 .info-contract table.info-table {
     margin: 15px 0 25px;
     text-align: left;
@@ -1015,7 +911,6 @@ ul.menu-navigation {
 .table-box-employees .table tr th:first-child {
     width: 20px;
 }
-
 .table-box-employees .table tr td {
     display: table-cell;
     vertical-align: middle;
@@ -1032,7 +927,6 @@ ul.menu-navigation {
 .table-box-employees .table tr td:last-child {
     width: 40px;
 }
-
 .table-box-employees .table tr td .pic-box {
     display: block;
     width: 25px;
@@ -1040,14 +934,12 @@ ul.menu-navigation {
     overflow: hidden;
     background-size: cover;
 }
-
 .table-box-employees .table tr td .pic-box img {
     display: block;
     overflow: hidden;
     height: 100%;
     width: auto;
 }
-
 .table-box-employees .table tr td .pic-box .user-icon {
     font-size: 16px;
     display: block;
@@ -1059,7 +951,6 @@ ul.menu-navigation {
     line-height: 30px;
     box-sizing: border-box;
 }
-
 .table-box-employees .dropdown-lines {
     padding: 2px;
     position: relative;
@@ -1072,13 +963,6 @@ ul.menu-navigation {
     background-color:  #000000;
     margin-bottom: 4px;
 }
-
-/*.dropdawn  .dropdawn-lines span.caret {*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*right: 0;*/
-/*}*/
-
 .dropdown .settings-txt {
     display: block;
     width: 100%;
@@ -1086,7 +970,6 @@ ul.menu-navigation {
     text-align: right;
     line-height: 26px;
 }
-
 .dropdown .caret {
     position: absolute;
     top: 7px;
@@ -1096,17 +979,14 @@ ul.menu-navigation {
     border: solid 4px transparent;
     border-top: solid 6px #000000;
 }
-
 .dropdown.open .caret {
     border: solid 4px transparent;
     border-bottom: solid 6px #000000;
     top: 2px;
 }
-
 .dropdown.open .settings-txt .icon-cog {
     color: #20778b;
 }
-
 ul.list-buttons {
     position: absolute;
     top: 100%;
@@ -1121,15 +1001,11 @@ ul.list-buttons {
     font-size: 14px;
     text-align: left;
     list-style: none;
-     background-color: transparent;
-    /*-webkit-background-clip: padding-box;*/
-    /* background-clip: padding-box; */
+    background-color: transparent;
     border: none;
     border-radius: 4px;
-    /* -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175); */
-     box-shadow: none;
+    box-shadow: none;
 }
-
 ul.list-buttons li .btn-special {
     display: block;
     width: 205px;
@@ -1144,15 +1020,12 @@ ul.list-buttons li .btn-special {
     text-align: left;
     border-bottom: solid 1px #fff;
 }
-
 ul.list-buttons li .btn-special:hover {
     background: #2f6625;
 }
-
 ul.list-buttons li:first-child .btn-special {
     border-top: solid 1px #fff;
 }
-
  .dropdown-menu span.text {
      position: relative;
      left: 5px;
@@ -1170,11 +1043,7 @@ ul.list-buttons li:first-child .btn-special {
     display: none;
 }
 
-
-
-/*-------------------------------------
-            Select@
------------------------------------------*/
+/*-----------Select--------------------*/
 
 .wt130 {
      width: 150px;
@@ -1194,15 +1063,12 @@ input[type="search"] {
 }
 .btn-default:hover {
     background-color: #ffffff;
-
 }
 .ui-select-bootstrap .ui-select-choices-row>span:hover, .ui-select-bootstrap .ui-select-choices-row>span:focus {
     background-color: lightgray;
 }
 
-/*------------------------------------------------
-        Radio
-----------------------------------------*/
+/*--------------Radio------------------*/
 
 
 input[type="radio"] {
@@ -1233,9 +1099,7 @@ input[type="radio"] +  i:before {
 }
 
 
-/*------------------------------------------------
-     Checkbox
-----------------------------------------*/
+/*------------Checkbox-----------------*/
 
 input[type="checkbox"] {
     position: absolute;
@@ -1266,10 +1130,7 @@ input[type="checkbox"] + i {
 }
 
 
-
-/*------------------------------------------------
-     Datepicker
-----------------------------------------*/
+/*----------Datepicker-----------------*/
 
 .bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover {
     background-color: #9d9d9d;
@@ -1279,11 +1140,9 @@ input[type="checkbox"] + i {
 .bootstrap-datetimepicker-widget table thead tr:first-child th {
     background: lightgray;
 }
-
 .bootstrap-datetimepicker-widget table thead tr:first-child th:hover {
     background: #bab1b1;
 }
-
 .data-info {
     margin-top: 5px;
     font-size: 20px;
@@ -1348,33 +1207,24 @@ span.data-info {
 /*---------------------------------------------
                   stats-form
   --------------------------------------*/
-/*.table-box-stats {*/
-    /*margin: 40px auto;*/
-/*}*/
+
 .table-box-stats table.table-for-stats td {
     padding: 10px 30px;
     vertical-align: middle;
 }
-
-
 .table-for-stats td.quantity-box span {
     display: block;
     padding: 2px 10px 2px 70px;
-    /*border-bottom: 2px solid #000000;*/
-
 }
 .table-for-stats td.quantity-box span.title {
     font-weight: bold;
-
 }
 .table-for-stats td.quantity-box span.title > span  {
     display: inline-block;padding: 0;
 }
-
 .table-for-stats td.quantity-box span:first-child {
     padding: 8px 5px;
     display: block;
-
 }
 .quantity-box table.stats-department {
     border: 5px double #000000;
@@ -1383,13 +1233,10 @@ span.data-info {
 .quantity-box table.stats-department th{
     padding: 7px 34px;
     font-style: italic;
-
 }
-
 .quantity-box table.stats-department th:nth-child(2n){
     padding-left: 69px;
 }
-
 .quantity-box table.stats-department tr td:nth-child(2n) {
     text-align: center;
 }
@@ -1397,9 +1244,7 @@ span.data-info {
     padding: 7px 60px;
     font-style: italic;
     text-align: center;
-
 }
-
 .wrapper-box {
     margin-bottom: 0;
     padding-bottom: 0;
@@ -1413,7 +1258,6 @@ span.data-info {
     left: 0;
     z-index: 9999;
     margin: 0;
-
 }
 
 @media (min-width: 768px) {
@@ -1423,15 +1267,9 @@ span.data-info {
     }
 }
 
-
-
-
 /*---------------------------------------------
                  Icomoon
 --------------------------------------*/
-
-
-
 @font-face {
     font-family: 'icomoon';
     src:  url('../fonts/icomoon.eot?2okcfa');
