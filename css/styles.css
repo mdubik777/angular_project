@@ -6,16 +6,12 @@ audio, canvas, video { display: inline-block;}
 audio:not([controls]) { display: none; }
 [hidden] { display: none; }
 
-
 html, body, h1, h2, h3, h4, h5, h6, p, em, strong, abbr, acronym, blockquote, q, cite, ins, del, dfn, a, div, span, pre, hr, address, br, b, i, sub, sup, big, small, tt, table, tr, caption, thead, tbody, tfoot,
 col, colgroup, form, input, label, textarea, button, fieldset, legend, select, option, optiongroup, ul, ol, li, dl, dt, dd, code, var, kdb, samp, img, object, param, map, area, bdo, iframe, article, aside, canvas,
 details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video  {
     padding:0; margin:0; outline:0; font-size:100%;
 }
-
-
 a:focus	{ -moz-outline-style:none; }
-
 
 html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;} /* text mobile */
 ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
@@ -38,7 +34,6 @@ sub { bottom: -0.25em; }
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle;}
 svg:not(:root) { overflow: hidden; }
 
-
 label { cursor: pointer;}
 legend { border: 0; *margin-left: -7px; padding: 0; }
 button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
@@ -58,9 +53,6 @@ input:invalid, textarea:invalid { background-color: white; }
     background-image: none;
     color: rgb(0, 0, 0);
 }
-
-
-
 table { border-collapse: collapse; border-spacing: 0; table-layout: fixed;}
 
 ol,ul {list-style: none;}
@@ -85,16 +77,11 @@ caption {
     font-weight: bold;
     color: #ffffff;
     padding: 25px 10px 35px 8px;
-
-
 }
 
-
-
-
-         /*---------------------------
-                    Index
-          ---------------------------*/
+/*---------------------------
+        Index
+---------------------------*/
 
 .clearfix:after {
     content: "";
@@ -106,7 +93,6 @@ caption {
     min-height: 100%;
     padding-bottom: 150px;
 }
-
 .wrapper .header {
     background: linear-gradient(135deg, #6a6969, #000000 65%, #ffffff);
     position: relative;
@@ -115,11 +101,9 @@ caption {
     float: left;
     padding: 0 0 10px 10px;
 }
-
 .header  .logo-box a {
     float: left;
 }
-
 .header .slogan {
     width: 700px;
     margin: 0 auto;
@@ -135,7 +119,6 @@ caption {
     font-family: 'Yatra One', cursive;
     text-transform: uppercase;
     text-shadow: 7px -3px 7px #6e6c6c;
-
 }
 .header .slogan span.slogan-text {
     display: block;
@@ -149,9 +132,8 @@ caption {
     padding: 28px 50px 0 0;
 }
 .button-in{
-   padding: 4px 25px 8px 20px;
+    padding: 4px 25px 8px 20px;
     background-color: #157f03;
-    /*background: linear-gradient(55deg, #157f03 60%, #00a8ea);*/
     border: none;
     outline: none;
     border-radius: 15px;
@@ -230,7 +212,6 @@ caption {
     line-height: 40px;
     font-family: 'Russo One', sans-serif;
     font-size: 25px;
-
 }
 .date-wrapper-box .month-line {
     width: 140px;
@@ -238,12 +219,10 @@ caption {
     margin: 0 auto;
     background-color: gray ;
     border-radius: 4px;
-
 }
 .date-wrapper-box .current-day {
     height: 100px;
     text-align: center;
-
 }
 .date-wrapper-box .current-day span {
     display: block;
@@ -253,12 +232,10 @@ caption {
     line-height: 23px;
     text-transform: uppercase;
     padding: 8px 0 0;
-
 }
 .date-wrapper-box .current-day span.week-day {
     font-size: 18px;
 }
-
 .date-wrapper-box .current-time {
     position: relative;
     border-top: 2px solid gray;
@@ -353,7 +330,6 @@ ul.menu-navigation {
     height: 220px;
     margin: 30px auto;
 }
-
 .menu-navigation li{
     width: 160px;
     height: 160px;
@@ -404,7 +380,6 @@ ul.menu-navigation {
     position: relative;
     text-decoration: none;
 }
-
 .menu-navigation  .menu-icon{
     width: 100%;
     text-align: center;
