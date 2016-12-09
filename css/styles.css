@@ -452,7 +452,6 @@ ul.menu-navigation {
                   organization-form
 ----------------------------------------------*/
 
-
 .organization-box {
     box-shadow: 10px -10px 49px black;
 }
@@ -488,7 +487,6 @@ ul.menu-navigation {
 .organization-box .txt-area:focus {
     border: 2px solid #626665;
 }
-
 .organization-box .btn {
     padding: 11px 12px;
     border-radius: 10px;
@@ -528,7 +526,6 @@ ul.menu-navigation {
     min-height: 145px;
     margin: 25px;
     background: linear-gradient( 30deg,  lightgray, #e3e3e3 55% );
-
 }
 .filter-box-settings {
     width: 1000px
@@ -562,8 +559,8 @@ ul.menu-navigation {
     display: block;
 }
 
-
 /*-----------switcher---------------*/
+
 .show-filters {
     font-weight: bold;
     font-style: italic;
@@ -651,6 +648,7 @@ ul.menu-navigation {
     background-color: lightgray;
     text-align: center;
 }
+
 /*--------------Modal--------------------*/
 
 .table-box-employees .modal-header {
@@ -954,7 +952,6 @@ ul.menu-navigation {
 .table-box-employees .dropdown-lines {
     padding: 2px;
     position: relative;
-
 }
 .dropdown-lines .button-line {
     display: block;
@@ -1070,7 +1067,6 @@ input[type="search"] {
 
 /*--------------Radio------------------*/
 
-
 input[type="radio"] {
     display: none;
 }
@@ -1098,7 +1094,6 @@ input[type="radio"] +  i:before {
     display: block;
 }
 
-
 /*------------Checkbox-----------------*/
 
 input[type="checkbox"] {
@@ -1109,7 +1104,6 @@ input[type="checkbox"] {
     display: none;
 }
 input[type="checkbox"] + i {
-
     display: inline-block;
     width: 16px;
     height: 16px;
@@ -1126,9 +1120,7 @@ input[type="checkbox"] + i {
 }
  input[type="checkbox"]:checked +  i:before {
     display: block;
-
 }
-
 
 /*----------Datepicker-----------------*/
 
