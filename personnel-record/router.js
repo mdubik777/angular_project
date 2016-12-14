@@ -49,6 +49,6 @@ angular.module('personnelRecord')
 
             });
 
-
-        $urlRouterProvider.otherwise("/");
+		$urlRouterProvider.when('', "organization-record/organization-form");
+        $urlRouterProvider.otherwise("organization-record/organization-form");
     });
