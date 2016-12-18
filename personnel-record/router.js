@@ -5,7 +5,7 @@ angular.module('personnelRecord')
         $stateProvider
 
             .state('organization-form', {
-                url: "/organization-record/organization-form",
+                url: "organization-record/organization-form",
                 templateUrl: "organization-record/organization-form.html",
                 controller: "OrganizationCtrl",
                 controllerAs: "Ctrl",
@@ -49,5 +49,5 @@ angular.module('personnelRecord')
 
             });
 
-        $urlRouterProvider.otherwise("/organization-record/organization-form");
+        $urlRouterProvider.otherwise("organization-record/organization-form");
     });
